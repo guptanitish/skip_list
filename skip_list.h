@@ -26,5 +26,7 @@ public:
     node *find_prev(long);
     void insert(long,long); 
     void print_base_level();
+    void print_list();
+    void print_node(node*);
     //long get_offset(node*);
 };

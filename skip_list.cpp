@@ -5,8 +5,8 @@ using namespace std;
 //put this in utils
 int coinToss()
 {
-  return 0;
-   //return rand()%2;
+  //return 0;
+   return rand()%2;
 }
 
 skip_list::skip_list()
@@ -149,18 +149,41 @@ node* skip_list::get_head()
 {
   return head;
 }
-
+void skip_list::print_node(node *temp)
+{
+  cout<<"("<<temp->val<<","<<temp->offset<<")"<<"\t";
+}
 void skip_list::print_base_level()
 {
+  cout<<endl<<"Base of the skip_list:"<<endl;
   //find base level head
+  
   node *temp=head;
   while(temp->down)
     temp=temp->down;
   //temp=temp->next; //ignoring the sentinel
-  while(temp->next)
+  while(temp)
   {
-    cout<<"("<<temp->val<<","<<temp->offset<<")"<<"\t";
+    print_node(temp);
     temp=temp->next;
+  }
+  cout<<endl;
+}
+
+void skip_list:: print_list()
+{
+  cout<<endl<<"Skip_list:"<<endl;
+  node *temp = head;
+  while(temp)
+  {
+    node *temp_row = temp;
+    while(temp_row)
+    {
+      print_node(temp_row);
+      temp_row=temp_row->next;
+    }
+    temp=temp->down;
+    cout<<endl;
   }
 }
 int main()
@@ -180,20 +203,25 @@ int main()
   else
     cout<<"Nahi hai be"<<endl;
   
-  node* temp1 = s.find(2);
+  
   s.insert(2,3);
   s.insert(3,3);
   s.insert(1,3);
   s.insert(5,3);
   s.insert(5,3);
+  s.insert(6,3);
+  s.insert(7,3);
+  s.insert(9,3);
+  s.insert(0,3);
+  node* temp1 = s.find(2);
   if(temp1)
   {  
-    cout<<temp1->val<<endl;
-    cout<<temp1->offset<<endl;
+    s.print_node(temp1);
   }
   else
     cout<<"Nahi hai be"<<endl;
   //cout<<s.index;
     s.print_base_level();
+    s.print_list();
   return 0;
 }
