@@ -28,5 +28,8 @@ public:
     void print_base_level();
     void print_list();
     void print_node(node*);
+    node *find_and_update_prev(long,long);
+    void insert_and_update(long,long);
+    long get_cumulative_count(long);
     //long get_offset(node*);
 };
