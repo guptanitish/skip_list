@@ -14,9 +14,7 @@ struct node
 class skip_list {
 
 private:
-  
-   node *bottom_head = new node(LONG_MIN,0);
-   node *bottom_tail = new node(LONG_MAX,0);
+ 
    node *head,*tail;
    
    int val;
@@ -26,6 +24,7 @@ public:
     node* get_head();
     node* find(long); //if not found return null, else return the node itself.
     node *find_prev(long);
-    //void insert(long); 
+    void insert(long,long); 
+    void print_base_level();
     //long get_offset(node*);
 };
